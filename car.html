@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Wash Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid transparent;
+    }
+
+    nav ul li a:hover {
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+
+    main {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .carousel .prev, .carousel .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .carousel .prev {
+      left: 10px;
+    }
+
+    .carousel .next {
+      right: 10px;
+    }
+
+   
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><img src="ca.png" alt="Car Wash Logo" /></div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html" target="_blank">Login</a></li>
+        <li><a href="reg.html" target="_blank">Registration</a></li>
+        <li><a href="cont.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <h1>A Car Wash Experience like No Other</h1>
+    <div class="carousel">
+      <button class="prev">❮</button>
+      <img src="ca1.jpeg" alt="Car Wash Image 1"class="active">
+      <img src="hd2.jpg" alt="Car Wash Image 2">
+      <img src="hd3.jpg" alt="Car Wash Image 3">
+      <button class="next">❯</button>
+    </div>
+    <p>Car Wash is a brand which is literally going to change the way people think about car cleaning. It is a unique mechanized car cleaning concept where cars are getting pampered by the latest equipments including high pressure cleaning machines, spray injection and extraction machines, high powered vacuum cleaners, steam cleaners and so on.</p>
+  <footer>
+    <p>&copy; 2024 Car Wash Website. All rights reserved.</p>
+    <p>Contact us at:carviswa@gmail.com</p>
+  </footer>
+
+  <script>
+    // Carousel functionality
+    const images = document.querySelectorAll('.carousel img');
+    const prevButton = document.querySelector('.carousel .prev');
+    const nextButton = document.querySelector('.carousel .next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+      showImage(currentIndex);
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+      showImage(currentIndex);
+    });
+  </script>
+</body>
+</html>
